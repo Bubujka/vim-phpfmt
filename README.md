@@ -1,23 +1,23 @@
 Vim-phpfmt
-================
+==========
 
-Integrate [phpfmt](https://github.com/fabpot/phpfmt) created by fabpot.
+Inspired by vim-php-cs-fixer.
 
-This plugin will execute the `phpfmt` command on the directory or file (depends on which command you call). See options to know how to customize that.
+Integrate [php.tools](https://github.com/dericofilho/php.tools).
+
+This plugin will execute the `fmt.phar` command on the directory or file (depends on which command you call). See options to know how to customize that.
 
 **Options available**:
 
 ```viml
+let g:phpfmt_on_save = get(g:, 'phpfmt_on_save', 1) " format on save (autocmd)
 " If phpfmt is in $PATH, you don't need to define line below
-" let g:php_cs_fixer_path = "~/phpfmt.phar" " define the path to the phpfmt.phar
-let g:php_cs_fixer_level = "all"                  " which level ?
-let g:php_cs_fixer_config = "default"             " configuration
-let g:php_cs_fixer_php_path = "php"               " Path to PHP
-" If you want to define specific fixers:
-"let g:php_cs_fixer_fixers_list = "linefeed,short_tag,indentation"
-let g:php_cs_fixer_enable_default_mapping = 1     " Enable the mapping by default (<leader>pcd)
-let g:php_cs_fixer_dry_run = 0                    " Call command with dry-run option
-let g:php_cs_fixer_verbose = 0                    " Return the output of command if 1, else an inline information.
+" let g:phpfmt_path = "~/phpfmt.phar" " define the path to the phpfmt.phar
+let g:phpfmt_config = ".php.tools.ini"             " configuration file
+let g:phpfmt_php_path = "php"               " Path to PHP
+"let g:phpfmt_prepasses_list = "AutoPreincrement,JointToImplode"
+"let g:phpfmt_passes_list = "ReturnNull"
+let g:phpfmt_enable_default_mapping = 1     " Enable the mapping by default (<leader>pcd)
 ```
 
 Default mapping is `<leader>pcd`
@@ -34,17 +34,17 @@ nnoremap <silent><leader>pcf :call PhpCsFixerFixFile()<CR>
 Via **[Vundle](https://github.com/gmarik/vundle)**, add:
 
 ```viml
-Bundle 'stephpy/vim-phpfmt'
+Bundle 'dericofilho/vim-phpfmt'
 ```
 
 Via **[Pathogen](https://github.com/tpope/vim-pathogen)**, do:
 
 ```bash
 cd ~/.vim/bundle
-git clone git@github.com:stephpy/vim-phpfmt.git
+git clone git@github.com:dericofilho/vim-phpfmt.git
 ```
 
-To see how to install `phpfmt`, look at [phpfmt](https://github.com/fabpot/phpfmt) repository.
+To see how to install `php.tools`, look at [php.tools](https://github.com/dericofilho/php.tools) repository.
 
-If you see any improvement or question, contribute or create an issue
+If you see any improvement or question, contribute or create an issue.
 

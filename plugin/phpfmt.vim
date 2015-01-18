@@ -8,29 +8,18 @@ if exists("g:vim_phpfmt") || &cp
 endif
 let g:vim_phpfmt = 1
 
-let g:phpfmt_path = get(g:, 'phpfmt_path', '~/fmt.phar')
+let g:phpfmt_dry_run = get(g:, 'phpfmt_dryrun', 0)
+let g:phpfmt_on_save = get(g:, 'phpfmt_on_save', 1)
 let g:phpfmt_php_path = get(g:, 'phpfmt_php_path', 'php')
 let g:phpfmt_enable_default_mapping = get(g:, 'phpfmt_enable_default_mapping', '1')
 
-if executable('fmt.phar')
-  let g:phpfmt_command = 'fmt.phar'
-else
-  let g:phpfmt_command = g:phpfmt_php_path.' '.g:phpfmt_path
-end
+let g:phpfmt_command = g:phpfmt_php_path.' '.expand('<sfile>:p:h').'/fmt.phar --no-backup'
 
 if exists('g:phpfmt_config')
   let g:phpfmt_command = g:phpfmt_command.' --config='.g:phpfmt_config
 endif
 
-
 fun! PhpFmtFix(path, dry_run)
-
-    if !executable('fmt.phar')
-      if !filereadable(expand(g:phpfmt_path))
-        echoerr(g:phpfmt_path.' is not found')
-      endif
-    endif
-
     let command = g:phpfmt_command.' '.a:path
 
     if exists('g:phpfmt_passes_list')
@@ -49,20 +38,18 @@ fun! PhpFmtFix(path, dry_run)
         let command = command.' --psr2'
     endif
 
-    let s:output = system(command)
+
+    let s:lint = system(g:phpfmt_php_path.' -l '.a:path)
     if v:shell_error
-        echohl Error | echo s:output | echohl None
+        echohl Error | echo s:lint | echohl None
     else
-        exec 'edit!'
-        let s:nbLines = len(split(s:output, '\n'))
-
-        if s:nbLines > 0
-            echohl Title | echo s:nbLines." file(s) modified(s)" | echohl None
+        let s:output = system(command)
+        if v:shell_error
+            echohl Error | echo s:output | echohl None
         else
-            echohl Title | echo "There is no cs to fix" | echohl None
+            exec 'edit!'
+            :set statusline="phpfmt: done"
         endif
-
-        call PhpFmtFix(a:path, 0)
     endif
 endfun
 
@@ -77,6 +64,10 @@ endfun
 if(g:phpfmt_enable_default_mapping == 1)
     nnoremap <silent><leader>pcd :call PhpFmtFixDirectory()<CR>
     nnoremap <silent><leader>pcf :call PhpFmtFixFile()<CR>
+endif
+
+if(g:phpfmt_on_save == 1)
+    :autocmd BufWritePost *.php :call PhpFmtFixFile()
 endif
 
 " vim: foldmethod=marker
