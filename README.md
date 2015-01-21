@@ -25,8 +25,8 @@ Default mapping is `<leader>pcd`
 If you want to change it:
 
 ```viml
-nnoremap <silent><leader>pcd :call PhpCsFixerFixDirectory()<CR>
-nnoremap <silent><leader>pcf :call PhpCsFixerFixFile()<CR>
+nnoremap <silent><leader>pcd :call PhpFmtFixDirectory()<CR>
+nnoremap <silent><leader>pcf :call PhpFmtFixFile()<CR>
 ```
 
 # Installation
