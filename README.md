@@ -17,7 +17,7 @@ let g:phpfmt_php_path = "php"               " Path to PHP
 let g:phpfmt_enable_default_mapping = 1     " Enable the mapping by default (<leader>pcd)
 ```
 
-Default mapping is `<leader>pcd`
+Default mapping is `<leader>pcf` (formats a file) and `<leader>pcd` (formats the whole directory of the file).
 
 If you want to change it:
 
