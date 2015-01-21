@@ -1,11 +1,17 @@
 Vim-phpfmt
 ==========
 
-Inspired by vim-php-cs-fixer.
-
-Integrate [php.tools](https://github.com/dericofilho/php.tools).
+Inspired by vim-php-cs-fixer. This plugin integrates [php.tools](https://github.com/dericofilho/php.tools).
 
 This plugin will execute the `fmt.phar` command on the directory or file (depends on which command you call). See options to know how to customize that.
+
+The plugin comes with `php.tools fmt.phar` embedded, it should suffice.
+
+If you see any improvement or question, please, contribute or create an issue.
+
+**Keeping up-to-date**:
+
+This plugin updates `fmt.phar` during VIM opening. If this fails, please open an issue stating what happens and possible logs.
 
 **Options available**:
 
@@ -19,7 +25,7 @@ let g:phpfmt_enable_default_mapping = 1     " Enable the mapping by default (<le
 
 Default mapping is `<leader>pcf` (formats a file) and `<leader>pcd` (formats the whole directory of the file).
 
-If you want to change it:
+If you want to change it, update `plugin/phpfmt.vim` file, editing these lines:
 
 ```viml
 nnoremap <silent><leader>pcd :call PhpFmtFixDirectory()<CR>
@@ -34,14 +40,13 @@ Via **[Vundle](https://github.com/gmarik/vundle)**, add:
 Bundle 'dericofilho/vim-phpfmt'
 ```
 
+Open VIM and execute:
+`:PluginInstall`
+
 Via **[Pathogen](https://github.com/tpope/vim-pathogen)**, do:
 
 ```bash
 cd ~/.vim/bundle
 git clone git@github.com:dericofilho/vim-phpfmt.git
 ```
-
-The plugin comes with `php.tools fmt.phar` embedded, it should suffice.
-
-If you see any improvement or question, please, contribute or create an issue.
 
