@@ -11,9 +11,6 @@ This plugin will execute the `fmt.phar` command on the directory or file (depend
 
 ```viml
 let g:phpfmt_on_save = get(g:, 'phpfmt_on_save', 1) " format on save (autocmd)
-" If phpfmt is in $PATH, you don't need to define line below
-" let g:phpfmt_path = "~/phpfmt.phar" " define the path to the phpfmt.phar
-let g:phpfmt_config = ".php.tools.ini"             " configuration file
 let g:phpfmt_php_path = "php"               " Path to PHP
 "let g:phpfmt_prepasses_list = "AutoPreincrement,JointToImplode"
 "let g:phpfmt_passes_list = "ReturnNull"
