@@ -41,7 +41,7 @@ cd ~/.vim/bundle
 git clone git@github.com:dericofilho/vim-phpfmt.git
 ```
 
-To see how to install `php.tools`, look at [php.tools](https://github.com/dericofilho/php.tools) repository.
+The plugin comes with `php.tools fmt.phar` embedded, it should suffice.
 
-If you see any improvement or question, contribute or create an issue.
+If you see any improvement or question, please, contribute or create an issue.
 
