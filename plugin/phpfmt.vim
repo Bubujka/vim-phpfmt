@@ -53,6 +53,7 @@ fun! PhpFmtFix(path)
         else
             exec 'edit!'
             :set statusline="phpfmt: done"
+            :set syntax=php
         endif
     endif
 endfun
