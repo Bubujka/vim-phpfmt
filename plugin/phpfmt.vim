@@ -52,7 +52,6 @@ fun! PhpFmtFix(path)
             echohl Error | echo s:output | echohl None
         else
             exec 'edit!'
-            :set statusline="phpfmt: done"
             :set syntax=php
         endif
     endif
