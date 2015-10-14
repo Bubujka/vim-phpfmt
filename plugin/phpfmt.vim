@@ -87,8 +87,6 @@ if(g:phpfmt_update_on_open == 1)
         endif
         if v:shell_error
             echohl Error | echo s:update_cmd | echohl None
-        else
-            echohl Title | echo s:update_cmd | echohl None
         endif
     endif
 endif
