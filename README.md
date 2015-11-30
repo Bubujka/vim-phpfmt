@@ -1,11 +1,13 @@
 Vim-phpfmt
 ==========
 
-Inspired by vim-php-cs-fixer. This plugin integrates [php.tools](https://github.com/dericofilho/php.tools).
+***[This project follows a Code of Conduct.](https://github.com/phpfmt/code-of-conduct)***
+
+Inspired by vim-php-cs-fixer. This plugin integrates [phpfmt](https://github.com/phpfmt/fmt).
 
 This plugin will execute the `fmt.phar` command on the directory or file (depends on which command you call). See options to know how to customize that.
 
-The plugin comes with `php.tools fmt.phar` embedded, it should suffice.
+The plugin comes with `phpfmt fmt.phar` embedded, it should suffice.
 
 If you see any improvement or question, please, contribute or create an issue.
 
