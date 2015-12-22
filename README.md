@@ -52,3 +52,9 @@ cd ~/.vim/bundle
 git clone git@github.com:dericofilho/vim-phpfmt.git
 ```
 
+Via **[vim-plug](https://github.com/junegunn/vim-plug)**, add:
+```
+Plug 'phpfmt/vim-phpfmt'
+```
+Open VIM and execute: 
+`:PlugInstall`
